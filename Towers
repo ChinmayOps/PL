@@ -6,5 +6,5 @@ def towers_of_hanoi(n, source, auxiliary, target):
     print(f"Move disk {n} from {source} to {target}")
     towers_of_hanoi(n-1, auxiliary, source, target)
 
-# Example: Move 3 disks from A to C
+#Move 3 disks from A to C
 towers_of_hanoi(3, 'A', 'B', 'C')
