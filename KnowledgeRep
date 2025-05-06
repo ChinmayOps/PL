@@ -95,14 +95,13 @@ def select_sort_algorithm(arr):
 
     return quick_sort(arr.copy())
 
-# Example usage
 if __name__ == "__main__":
-    # Test different list scenarios here
-    data = [7, 4, 9, 1, 3, 2, 5]  # Try different configurations
+    data = [7, 4, 9, 1, 3, 2, 5]
     sorted_data = select_sort_algorithm(data)
     print("Sorted Output:", sorted_data)
 
-'''| Rule | Condition                            | Sorting Algorithm  |
+'''
+| Rule | Condition                            | Sorting Algorithm  |
 | ---- | ------------------------------------ | ------------------ |
 | R1   | List size < 10 and not nearly sorted | **Bubble Sort**    |
 | R2   | List is nearly sorted                | **Insertion Sort** |
