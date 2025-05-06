@@ -21,20 +21,20 @@ def greedy_tsp(cities):
     visited.append(visited[0])
     return visited
 
-# Example usage:
 cities = [(0, 0), (1, 2), (2, 4), (4, 2), (5, 1)]  # List of cities as (x, y) coordinates
 path = greedy_tsp(cities)
 print("Visited path:", path)
+
 
 ##ASTAR
 import heapq
 import numpy as np
 
-# Function to calculate Euclidean distance between two cities
+# Calculate Euclidean distance between two cities
 def calculate_distance(city1, city2):
     return np.linalg.norm(np.array(city1) - np.array(city2))
 
-# Heuristic: Approximate cost of visiting remaining cities using MST (Minimum Spanning Tree)
+# Heuristic: Approx cost of visiting remaining cities using MST
 def minimum_spanning_tree(cities, visited):
     unvisited = [i for i in range(len(cities)) if i not in visited]
     if not unvisited:
@@ -61,7 +61,6 @@ def minimum_spanning_tree(cities, visited):
     
     return total_cost
 
-# A* search algorithm for TSP
 def a_star_tsp(cities):
     n = len(cities)
     start_city = 0
@@ -85,7 +84,6 @@ def a_star_tsp(cities):
                 total_cost = g_cost + h_cost
                 heapq.heappush(open_set, (total_cost, new_path, new_visited))
 
-# Example usage
 cities = [(0, 0), (1, 2), (2, 4), (3, 1)]
 path, total_cost = a_star_tsp(cities)
 print("Visited path:", path)
