@@ -20,7 +20,6 @@ def water_jug_bfs():
             print("Goal reached!")
             return
 
-        # Possible actions:
         possible_moves = [
             (4, jug3),  # Fill 4L
             (jug4, 3),  # Fill 3L
@@ -36,8 +35,8 @@ def water_jug_bfs():
             if state not in visited:
                 queue.append(state)
 
-# Run the function
 water_jug_bfs()
+
 
 ##DFS
 
@@ -71,5 +70,4 @@ def water_jug_dfs():
             if state not in visited:
                 stack.append(state)
 
-# Run the DFS solution
 water_jug_dfs()
