@@ -120,3 +120,46 @@ def tsp_astar(graph):
     print("Total Cost:", best_cost)
 
 tsp_astar(graph)'''
+
+
+//MST KRUSKAL'S
+def minimum_spanning_tree(cities, visited):
+    unvisited = [i for i in range(len(cities)) if i not in visited]
+    if len(unvisited) <= 1:
+        return 0
+
+    # Create all edges between unvisited cities
+    edges = []
+    for i in range(len(unvisited)):
+        for j in range(i + 1, len(unvisited)):
+            u = unvisited[i]
+            v = unvisited[j]
+            dist = calculate_distance(cities[u], cities[v])
+            edges.append((dist, u, v))
+
+    # Sort edges by weight
+    edges.sort()
+
+    # Union-Find data structure for Kruskal's algorithm
+    parent = {i: i for i in unvisited}
+
+    def find(u):
+        while parent[u] != u:
+            parent[u] = parent[parent[u]]  # Path compression
+            u = parent[u]
+        return u
+
+    def union(u, v):
+        parent[find(u)] = find(v)
+
+    total_cost = 0
+    edge_count = 0
+    for dist, u, v in edges:
+        if find(u) != find(v):
+            union(u, v)
+            total_cost += dist
+            edge_count += 1
+            if edge_count == len(unvisited) - 1:
+                break
+
+    return total_cost
